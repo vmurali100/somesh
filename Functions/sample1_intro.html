@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var person = {
+        fname: "Murali",
+        lname: "Krishna",
+        //Methods
+        // fullName: function() {
+        //   console.log(this);
+        //   return this.fname + " " + this.lname;
+        // }
+
+        fullName: (a, b) => {
+          console.log(this);
+          return a + " " + b;
+        }
+      };
+
+      console.log(person.fullName("Ram", "Krishna"));
+      const sayHello = (a, b) => {
+        var someinfo = "Hello Javascript";
+        console.log(a, b, someinfo);
+      };
+      sayHello("Some", "word");
+      //   var bar = helo => console.log(arguments);
+
+      //Funtions
+      function getFullName() {
+        return person.fname + " " + person.lname;
+      }
+
+      //Arrow Funtion (ES6)
+      var getFullName = () => {};
+
+      //Function Expression
+      var getFullName = function() {
+        return person.fname + " " + person.lname;
+      };
+
+      //Assigning a Named function to a variable
+      var someInfo2 = function someInfo3() {};
+
+      //Self Invoked Function or Immeietly invoked function
+      (function() {
+        console.log("I am Inside an IIF");
+      })();
+
+      //Assining a IIF to a variable
+      var someInfo = (function() {
+        return person;
+      })();
+
+      //Constructor function
+      //   var someInfo = new Person();
+
+      console.log(someInfo);
+      console.log(person.fullName());
+      //   console.log(getFullName());
+      //   console.log(getFullName());
+    </script>
+  </body>
+</html>

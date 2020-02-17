@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      document.write("Hello world");
+
+      function writesome() {
+        // document.write("<p>hello from some function</p>");
+        document.getElementById("demo").innerHTML =
+          "<p>hello from some function</p>";
+      }
+      //   writesome();
+    </script>
+  </head>
+  <body>
+    <button onclick="writesome()">write Some</button>
+    <div>
+      <div id="demo"></div>
+      <h2>Hello world in side Div</h2>
+    </div>
+  </body>
+</html>

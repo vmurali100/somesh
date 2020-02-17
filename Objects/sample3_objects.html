@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class sayHello {
+        constructor(fname, lname) {
+          this.fname = fname;
+          this.lname = lname;
+        }
+        firstName() {
+          return this.fname;
+        }
+      }
+
+      var abc = new sayHello("Ram", "Krishna");
+
+      class zyx extends sayHello {
+        constructor(fname, lname, email, city, state) {
+          super(fname, lname);
+          this.email = email;
+          this.city = city;
+          this.state = state;
+        }
+        fullName() {
+          return this.fname + " " + this.lname;
+        }
+      }
+
+      var abc2 = new zyx(
+        "Murali",
+        "krishna",
+        "ravi@gmail.com",
+        "Bangalore",
+        "KA"
+      );
+
+      console.log(abc);
+      console.log(abc2.firstName());
+      console.log(abc2.fullName());
+      console.log(abc2);
+    </script>
+  </body>
+</html>

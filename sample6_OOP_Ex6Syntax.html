@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class sayHello {
+        constructor(obj) {
+          this.fname = obj.fname;
+          this.lname = obj.lname;
+        }
+      }
+
+      var person1 = new sayHello({ fname: "Murali", lname: "Krishna" });
+      console.log(person1);
+
+      class SuperPerson extends sayHello {
+        sayBye() {
+          console.log("Helo Bye Bye");
+        }
+      }
+
+      var person2 = new SuperPerson({ fname: "Murali", lname: "Krishna" });
+
+      console.log(person2);
+
+      class SuperSuperPerson extends SuperPerson {}
+    </script>
+  </body>
+</html>

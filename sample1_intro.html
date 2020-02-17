@@ -7,6 +7,30 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Hello World</h1>
+    <button onclick="changeheading()">Change Heading</button>
+    <h1 id="myHeading" class="some" style="background: grey;">Hello World</h1>
+    <input type="text" id="fname" />
+    <button onclick="submitData()">Submit</button>
+    <script>
+      function changeheading() {
+        // document.getElementById("myHeading").innerText = "red";
+        document.getElementById("myHeading").style.background = "yellow";
+      }
+
+      function submitData() {
+        var xyz;
+        var some = null;
+        console.log(xyz);
+        console.log(some);
+        let abc = document.getElementById("fname").value;
+        console.log(fname);
+
+        if (abc == "") {
+          console.log("Please Enter Some Info");
+        } else {
+          console.log("Abc vale : " + abc);
+        }
+      }
+    </script>
   </body>
 </html>

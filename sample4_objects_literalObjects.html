@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="demo"></div>
+    <script>
+      var person = {
+        fname: "Kash",
+        lname: "Buckaloo",
+        tel: "(973)075-4934",
+        address: "5256 Magna Rd",
+        city: "Bellefontaine",
+        state: "ND",
+        zip: 35522
+      };
+
+      delete person.zip;
+      var results = "";
+      var i = 0;
+      for (a in person) {
+        person["some" + i] = "some Values";
+        results = results + person[a] + "<br>";
+        i++;
+      }
+
+      console.log(person);
+
+      document.getElementById("demo").innerHTML = person;
+      //   document.getElementById("demo").innerHTML =
+      //     person.fname +
+      //     "<br>" +
+      //     person.lname +
+      //     "<br>" +
+      //     person.tel +
+      //     "<br>" +
+      //     person.address +
+      //     "<br>" +
+      //     person.city +
+      //     "<br>" +
+      //     person.state +
+      //     "<br>" +
+      //     person.zip +
+      //     "<br>";
+    </script>
+  </body>
+</html>

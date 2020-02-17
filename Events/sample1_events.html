@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button
+      onclick="console.log('helo')"
+      onmouseover="sayHi()"
+      onmouseout="sayBye()"
+    >
+      Click
+    </button>
+    <script></script>
+    <input
+      type="text"
+      name=""
+      id=""
+      onfocus="focusFunction()"
+      onblur="blurFunction()"
+      onkeypress="keyPresfunction()"
+      onchange="changeFunction()"
+    />
+    <select name="" id="" onchange="changeFunction(event)">
+      <option value="Bangalore">Bangalore</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Kochin">Kochin</option>
+      <option value="Hyderabad">Hyderabad</option>
+    </select>
+
+    <script>
+      function changeFunction(event) {
+        console.log(event);
+      }
+      function keyPresfunction() {
+        console.log("keyPresfunction is called");
+      }
+      function sayHello() {
+        console.log("sayHello called");
+      }
+
+      function sayHi() {
+        console.log("sayHi is called");
+      }
+
+      function sayBye() {
+        console.log("sayBye is called");
+      }
+
+      function focusFunction() {
+        console.log("focusFunction is called");
+      }
+
+      function blurFunction() {
+        console.log("blurFunction is called");
+      }
+    </script>
+  </body>
+</html>

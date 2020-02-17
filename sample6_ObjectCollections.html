@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var collections = [
+        {
+          fname: "Kash",
+          lname: "Buckaloo",
+          tel: "(973)075-4934",
+          address: "5256 Magna Rd",
+          city: "Bangalore",
+          state: "ND",
+          zip: 35522
+        },
+        {
+          fname: "Deitric",
+          lname: "Chandler",
+          tel: "(487)144-7373",
+          address: "9153 Malesuada Ln",
+          city: "Bangalore",
+          state: "WV",
+          zip: 90156
+        },
+        {
+          fname: "Marva",
+          lname: "Klepsteen",
+          tel: "(780)614-5219",
+          address: "3336 Tortor Rd",
+          city: "Bangalore",
+          state: "WV",
+          zip: 87687
+        },
+        {
+          fname: "Cindy",
+          lname: "Woodhouse",
+          tel: "(616)851-8308",
+          address: "4636 Aliquam Ave",
+          city: "Albany",
+          state: "MS",
+          zip: 77127
+        },
+        {
+          fname: "Jawdat",
+          lname: "Carlston",
+          tel: "(364)758-0297",
+          address: "2127 Sit St",
+          city: "Covington",
+          state: "NY",
+          zip: 51573
+        },
+        {
+          fname: "Anne",
+          lname: "Thomad",
+          tel: "(794)648-6766",
+          address: "9591 Nec Ct",
+          city: "Bangalore",
+          state: "MT",
+          zip: 62773
+        },
+        {
+          fname: "Gary",
+          lname: "Saadeh",
+          tel: "(631)956-0848",
+          address: "5227 At St",
+          city: "Bangalore",
+          state: "NY",
+          zip: 83067
+        },
+        {
+          fname: "Dung",
+          lname: "Willman",
+          tel: "(378)086-6532",
+          address: "3855 Pulvinar Ct",
+          city: "Atwater",
+          state: "NV",
+          zip: 71436
+        },
+        {
+          fname: "Deborah",
+          lname: "Friend",
+          tel: "(989)068-9416",
+          address: "4730 Mattis St",
+          city: "Bangalore",
+          state: "WV",
+          zip: 97433
+        },
+        {
+          fname: "Maribel",
+          lname: "Odle",
+          tel: "(155)494-8975",
+          address: "1912 Ac Rd",
+          city: "Owensboro",
+          state: "WI",
+          zip: 34759
+        }
+      ];
+
+      var fromBangalore = collections.filter(o => {
+        return o.city == "Bangalore";
+      });
+      console.log(fromBangalore.length);
+    </script>
+  </body>
+</html>

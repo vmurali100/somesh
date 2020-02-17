@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //   var person = {
+      //     fname: "Murali",
+      //     lname: "Krishna"
+      //   };
+
+      //   function Person(fname, lname, email, city, mobile) {
+      //     this.fname = fname;
+      //     this.lname = lname;
+      //     this.city = city;
+      //   }
+
+      function Person(fname, lname, email) {
+        this.fname = fname;
+        this.lname = lname;
+        this.email = email;
+        this.funllName = function() {
+          return this.fname + " " + this.lname;
+        };
+      }
+
+      var person1 = new Person("Ram", "Krishna");
+      var person2 = new Person("Kiran", "Kumar", "vmurali@gmail.com");
+
+      //   Person.prototype.funllName = function() {
+      //     return this.fname + " " + this.lname;
+      //   };
+
+      console.log(person1.funllName());
+      console.log(person2.funllName());
+    </script>
+  </body>
+</html>
