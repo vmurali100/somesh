@@ -30,8 +30,18 @@
               type="button"
               class="btn btn-primary"
               onclick="createUser()"
+              id="submit"
             >
               Submit
+            </button>
+            <button
+              id="update"
+              type="button"
+              class="btn btn-primary"
+              onclick="updateUser()"
+              style="display: none;"
+            >
+              Update
             </button>
           </form>
         </div>
@@ -41,6 +51,8 @@
               <tr>
                 <th>Email</th>
                 <th>Password</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody id="myTable"></tbody>
@@ -50,5 +62,7 @@
     </div>
     <script src="create.js"></script>
     <script src="read.js"></script>
+    <script src="update.js"></script>
+    <script src="delete.js"></script>
   </body>
 </html>
