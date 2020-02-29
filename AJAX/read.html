@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table border="1">
+      <thead>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Id</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <form style="display: none;">
+      <label for="fname">First Name : </label>
+      <input type="text" id="fname" /> <br />
+      <label for="lname">Last Name : </label>
+      <input type="text" name="" id="lname" /> <br />
+      <input type="text" name="" id="id" hidden /> <br />
+      <button type="button" onclick="createUser()" id="create">Create</button>
+      <button
+        type="button"
+        onclick="updateUser()"
+        id="update"
+        style="display: none;"
+      >
+        Update
+      </button>
+    </form>
+    <script>
+      function getUsers() {
+        var getInfo = new XMLHttpRequest();
+        getInfo.onreadystatechange = function() {
+          if (getInfo.readyState == 4 && getInfo.status == 200) {
+            users = JSON.parse(getInfo.response);
+            displayUsers(users);
+          }
+        };
+
+        getInfo.open("GET", "http://localhost:3000/users");
+        getInfo.send();
+      }
+
+      getUsers();
+
+      function displayUsers(users) {
+        document.querySelector("tbody").innerHTML = "";
+        users.map(function(user, index) {
+          var myTr = document.createElement("tr");
+          for (a in user) {
+            var myTd = document.createElement("td");
+            myTd.innerHTML = user[a];
+            myTr.appendChild(myTd);
+          }
+
+          var editTd = document.createElement("td");
+          var editButton = document.createElement("button");
+          editButton.innerHTML = "Edit";
+          editButton.setAttribute("onclick", "editUser(" + index + ")");
+          editTd.appendChild(editButton);
+          var delteTd = document.createElement("td");
+          var deleteBtn = document.createElement("button");
+          deleteBtn.setAttribute("onclick", "deleteUser(" + index + ")");
+          deleteBtn.innerHTML = "Delete";
+          delteTd.appendChild(deleteBtn);
+
+          myTr.appendChild(editTd);
+          myTr.appendChild(delteTd);
+          document.querySelector("tbody").appendChild(myTr);
+        });
+      }
+
+      function editUser(i) {
+        document.querySelector("form").style.display = "block";
+        console.log(users[i]);
+        for (a in users[i]) {
+          document.getElementById(a).value = users[i][a];
+        }
+        document.getElementById("create").style.display = "none";
+        document.getElementById("update").style.display = "block";
+      }
+
+      function deleteUser(i) {
+        console.log(users[i]);
+        var delUser = new XMLHttpRequest();
+        delUser.onreadystatechange = function() {
+          if (delUser.readyState == 4 && delUser.status == 200) {
+            console.log("User Deleted");
+            getUsers();
+          }
+        };
+
+        delUser.open("DELETE", "http://localhost:3000/users/" + users[i].id);
+        delUser.send();
+      }
+
+      function updateUser() {
+        var user = {
+          fname: document.getElementById("fname").value,
+          lname: document.getElementById("lname").value,
+          id: document.getElementById("id").value
+        };
+        console.log(user);
+        var update = new XMLHttpRequest();
+        update.onreadystatechange = function() {
+          if (update.readyState == 4 && update.status == 200) {
+            getUsers();
+          }
+        };
+
+        update.open("PUT", "http://localhost:3000/users/" + user.id);
+        update.setRequestHeader("Content-Type", "application/json");
+        update.send(JSON.stringify(user));
+      }
+    </script>
+  </body>
+</html>

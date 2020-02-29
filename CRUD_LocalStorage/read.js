@@ -92,8 +92,34 @@ function createButtons(myTr, i) {
 }
 
 function updateValues(row) {
+  var isInvalid = false;
   var allrows = document.getElementsByTagName("tr");
-  console.log(row);
   var targetRow = allrows[row + 1];
+  updatedPerson = {
+    email: targetRow.cells[0].children[0].value,
+    password: targetRow.cells[1].children[0].value
+  };
+
+  for (a in updatedPerson) {
+    if (a !== "email") {
+      if (updatedPerson[a] == "") {
+        isInvalid = true;
+      }
+    } else {
+      var pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!pattern.test(updatedPerson[a])) {
+        isInvalid = true;
+      }
+    }
+
+    console.log(a);
+  }
+  if (isInvalid) {
+    targetRow.cells[2].children[0].setAttribute("disabled", true);
+  } else {
+    targetRow.cells[2].children[0].removeAttribute("disabled");
+  }
+  // console.log(gindex);
   targetRow.cells[2].children[0].innerHTML = "Update";
+  targetRow.cells[2].children[0].setAttribute("onclick", "updateUser()");
 }

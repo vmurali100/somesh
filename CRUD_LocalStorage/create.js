@@ -8,6 +8,7 @@ function createUser() {
   localStorage.setItem("users", JSON.stringify(users));
   displayUsers();
   clearForm(person);
+  validate();
 }
 
 //To user while creating and updating
@@ -29,3 +30,23 @@ function clearForm(obj) {
     document.getElementById(a).value = "";
   }
 }
+
+//TO validate
+function validate() {
+  var isInvalid = false;
+  var user = captureUser();
+
+  for (a in user) {
+    if (user[a] == "") {
+      isInvalid = true;
+    }
+  }
+
+  if (isInvalid) {
+    document.getElementById("submit").setAttribute("disabled", true);
+  } else {
+    document.getElementById("submit").removeAttribute("disabled");
+  }
+}
+
+validate();

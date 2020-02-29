@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var users;
+      function getDataFromServer(showUsers) {
+        //Instanciating A XMLHttpRequest
+        var getData = new XMLHttpRequest();
+        getData.open("GET", "data.json");
+        getData.send();
+        getData.onreadystatechange = function() {
+          if (getData.status == 200) {
+            users = getData.response;
+            showUsers();
+          }
+        };
+      }
+
+      function showUsers() {
+        console.log(users);
+      }
+
+      getDataFromServer(showUsers);
+    </script>
+  </body>
+</html>

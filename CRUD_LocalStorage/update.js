@@ -10,14 +10,23 @@ function editUser(i) {
   displayUsers(true);
 }
 
+// function updateUser() {
+//   var user = captureUser();
+//   users[gindex] = user;
+//   localStorage.setItem("users", JSON.stringify(users));
+//   displayUsers();
+
+//   document.getElementById("update").style.display = "none";
+//   document.getElementById("submit").style.display = "block";
+
+//   clearForm(user);
+// }
+
 function updateUser() {
-  var user = captureUser();
-  users[gindex] = user;
+  // console.log(updatedPerson);
+  // console.log(gindex);
+  // console.log(users);
+  users[gindex] = updatedPerson;
   localStorage.setItem("users", JSON.stringify(users));
-  displayUsers();
-
-  document.getElementById("update").style.display = "none";
-  document.getElementById("submit").style.display = "block";
-
-  clearForm(user);
+  displayUsers(false);
 }
